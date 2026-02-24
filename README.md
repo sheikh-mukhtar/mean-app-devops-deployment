@@ -1,27 +1,247 @@
-In this DevOps task, you need to build and deploy a full-stack CRUD application using the MEAN stack (MongoDB, Express, Angular 15, and Node.js). The backend will be developed with Node.js and Express to provide REST APIs, connecting to a MongoDB database. The frontend will be an Angular application utilizing HTTPClient for communication.  
+# 🚀 MEAN Stack Application Deployment using Docker, Nginx & GitHub Actions CI/CD
 
-The application will manage a collection of tutorials, where each tutorial includes an ID, title, description, and published status. Users will be able to create, retrieve, update, and delete tutorials. Additionally, a search box will allow users to find tutorials by title.
+## 📌 Project Overview
 
-## Project setup
+This project demonstrates the complete containerization, orchestration, and deployment of a full-stack MEAN (MongoDB, Express.js, Angular, Node.js) application using industry-standard DevOps practices.
 
-### Node.js Server
+The application is deployed using Docker containers, managed via Docker Compose, served through an Nginx reverse proxy, and automated using GitHub Actions CI/CD pipeline with Docker Hub integration.
 
-cd backend
+---
 
-npm install
+## 🏗️ Architecture
 
-You can update the MongoDB credentials by modifying the `db.config.js` file located in `app/config/`.
+```text
+User Browser
+     │
+     ▼
+Nginx Reverse Proxy (Port 80)
+     │
+ ┌───────────────┐
+ │               │
+ ▼               ▼
+Frontend       Backend
+(Angular)     (Node.js)
+                   │
+                   ▼
+                MongoDB
+```
 
-Run `node server.js`
+---
 
-### Angular Client
+## 🛠️ Tech Stack
 
-cd frontend
+**Frontend**
 
-npm install
+* Angular 15
+* Nginx
 
-Run `ng serve --port 8081`
+**Backend**
 
-You can modify the `src/app/services/tutorial.service.ts` file to adjust how the frontend interacts with the backend.
+* Node.js
+* Express.js
 
-Navigate to `http://localhost:8081/`
+**Database**
+
+* MongoDB
+
+**DevOps Tools**
+
+* Docker
+* Docker Compose
+* Docker Hub
+* GitHub Actions
+* Nginx Reverse Proxy
+
+**Cloud Platform**
+
+* AWS EC2 (Ubuntu)
+
+---
+
+## 📂 Project Structure
+
+```
+mean-app-devops-deployment/
+│
+├── frontend/
+│   └── Dockerfile
+│
+├── backend/
+│   └── Dockerfile
+│
+├── nginx/
+│   └── default.conf
+│
+├── docker-compose.yml
+│
+├── .github/workflows/
+│   └── cicd.yml
+│
+├── screenshots/
+│   ├── app-running.png
+│   └── cicd-success.png
+│
+└── README.md
+```
+
+---
+
+## 🐳 Docker Setup
+
+### Build and Run Application
+
+```bash
+docker compose up -d
+```
+
+### Stop Application
+
+```bash
+docker compose down
+```
+
+---
+
+## 🌐 Nginx Reverse Proxy
+
+Nginx is configured to route traffic:
+
+* `/` → Frontend
+* `/api` → Backend
+
+Configuration file:
+
+```
+nginx/default.conf
+```
+
+Application accessible at:
+
+```
+http://localhost
+```
+
+or
+
+```
+http://<EC2-PUBLIC-IP>
+```
+
+---
+
+## 🔄 CI/CD Pipeline (GitHub Actions)
+
+The CI/CD pipeline automatically:
+
+* Builds Docker images
+* Pushes images to Docker Hub
+* Enables automated deployment
+
+Pipeline file:
+
+```
+.github/workflows/cicd.yml
+```
+
+Triggered on:
+
+```
+git push to main branch
+```
+
+---
+
+## 📸 Screenshots
+
+### Application Running
+
+![Application Screenshot](screenshots/app-running.png)
+
+---
+
+### GitHub Actions CI/CD Pipeline Success
+
+![CI/CD Pipeline Screenshot](screenshots/cicd-success.png)
+
+---
+
+## 📦 Docker Hub Images
+
+Frontend Image:
+
+```
+mukhtarsheikh/mean-frontend:latest
+```
+
+Backend Image:
+
+```
+mukhtarsheikh/mean-backend:latest
+```
+
+---
+
+## ☁️ Cloud Deployment Steps
+
+1. Launch EC2 Ubuntu instance
+2. Install Docker & Docker Compose
+3. Clone GitHub repository
+
+```bash
+git clone https://github.com/sheikh-mukhtar/mean-app-devops-deployment.git
+```
+
+4. Run application
+
+```bash
+docker compose up -d
+```
+
+---
+
+## 🧪 Testing
+
+Frontend:
+
+```
+http://localhost
+```
+
+Backend:
+
+```
+http://localhost:8080
+```
+
+---
+
+## ✅ Features Implemented
+
+✔ Full-stack containerization
+✔ Multi-container orchestration using Docker Compose
+✔ MongoDB container integration
+✔ Nginx reverse proxy setup
+✔ Docker Hub image hosting
+✔ GitHub Actions CI/CD pipeline
+✔ AWS EC2 deployment ready
+
+---
+
+## 👨‍💻 Author
+
+Mukhtar Sheikh
+
+GitHub
+https://github.com/sheikh-mukhtar
+
+Docker Hub
+https://hub.docker.com/u/mukhtarsheikh
+
+LinkedIn
+https://linkedin.com/in/mukhtarsheikh
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates real-world DevOps workflow including containerization, CI/CD automation, reverse proxy configuration, and production deployment readiness.
