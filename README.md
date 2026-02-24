@@ -162,7 +162,7 @@ git push to main branch
 
 ### GitHub Actions CI/CD Pipeline Success
 
-<img width="1916" height="917" alt="Screenshot 2026-02-24 110645" src="https://github.com/user-attachments/assets/6c2b984f-893b-40ee-96eb-3913656de345" />
+<img width="1916" height="928" alt="Screenshot 2026-02-24 102710" src="https://github.com/user-attachments/assets/4a08d872-412c-4f28-846d-01555496b5fd" />
 
 
 ---
