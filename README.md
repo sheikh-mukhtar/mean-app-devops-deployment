@@ -155,13 +155,15 @@ git push to main branch
 
 ### Application Running
 
-![Application Screenshot](screenshots/app-running.png)
+<img width="1916" height="917" alt="Screenshot 2026-02-24 110645" src="https://github.com/user-attachments/assets/5db0cd57-239c-474a-a0ba-33f30e34e928" />
+
 
 ---
 
 ### GitHub Actions CI/CD Pipeline Success
 
-![CI/CD Pipeline Screenshot](screenshots/cicd-success.png)
+<img width="1916" height="917" alt="Screenshot 2026-02-24 110645" src="https://github.com/user-attachments/assets/6c2b984f-893b-40ee-96eb-3913656de345" />
+
 
 ---
 
